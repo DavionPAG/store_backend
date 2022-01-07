@@ -1,0 +1,42 @@
+catalog = [
+    {
+        '_id': 't54352455325',
+        'price': 11,
+        'stock': 155,
+        'title': 'Cabbage',
+        'image': 'URL',
+        'category': 'Veg',
+    },
+    {
+        '_id': 'r5435424555325',
+        'price': 12,
+        'stock': 156,
+        'title': 'Potato',
+        'image': 'URL',
+        'category': 'Veg',
+    },
+    {
+        '_id': 'q5435424555325',
+        'price': 13,
+        'stock': 157,
+        'title': 'Carrot',
+        'image': 'URL',
+        'category': 'Veg',
+    },
+    {
+        '_id': 'a5435424555325',
+        'price': 14,
+        'stock': 158,
+        'title': 'Broccoli',
+        'image': 'URL',
+        'category': 'Veg',
+    },
+    {
+        '_id': 'g5435424555325',
+        'price': 15,
+        'stock': 159,
+        'title': 'Lettuce',
+        'image': 'URL',
+        'category': 'Veg',
+    },
+]
