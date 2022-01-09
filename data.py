@@ -5,7 +5,7 @@ catalog = [
         'stock': 155,
         'title': 'Cabbage',
         'image': 'URL',
-        'category': 'Veg',
+        'category': 'veg',
     },
     {
         '_id': 'r5435424555325',
@@ -13,7 +13,7 @@ catalog = [
         'stock': 156,
         'title': 'Potato',
         'image': 'URL',
-        'category': 'Veg',
+        'category': 'veg',
     },
     {
         '_id': 'q5435424555325',
@@ -21,7 +21,7 @@ catalog = [
         'stock': 157,
         'title': 'Carrot',
         'image': 'URL',
-        'category': 'Veg',
+        'category': 'veg',
     },
     {
         '_id': 'a5435424555325',
@@ -29,7 +29,7 @@ catalog = [
         'stock': 158,
         'title': 'Broccoli',
         'image': 'URL',
-        'category': 'Veg',
+        'category': 'greens',
     },
     {
         '_id': 'g5435424555325',
@@ -37,6 +37,6 @@ catalog = [
         'stock': 159,
         'title': 'Lettuce',
         'image': 'URL',
-        'category': 'Veg',
+        'category': 'greens',
     },
 ]
