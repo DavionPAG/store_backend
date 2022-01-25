@@ -1,42 +1,51 @@
 catalog = [
-    {
-        '_id': 't54352455325',
-        'price': 11,
-        'stock': 155,
-        'title': 'Cabbage',
-        'image': 'URL',
-        'category': 'veg',
-    },
-    {
-        '_id': 'r5435424555325',
-        'price': 12,
-        'stock': 156,
-        'title': 'Potato',
-        'image': 'URL',
-        'category': 'veg',
-    },
-    {
-        '_id': 'q5435424555325',
-        'price': 13,
-        'stock': 157,
-        'title': 'Carrot',
-        'image': 'URL',
-        'category': 'veg',
-    },
-    {
-        '_id': 'a5435424555325',
-        'price': 14,
-        'stock': 158,
-        'title': 'Broccoli',
-        'image': 'URL',
-        'category': 'greens',
-    },
-    {
-        '_id': 'g5435424555325',
-        'price': 15,
-        'stock': 159,
-        'title': 'Lettuce',
-        'image': 'URL',
-        'category': 'greens',
-    },
+  {
+    '_id' : 'gfdsnksdjnvdsv',
+    'title': 'Link',
+    'price': 15.50,
+    'img': 'Link.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'gfdsnkgsdjds1',
+    'title': "Major's Mask",
+    'price': 40.50,
+    'img': 'Majoras-Mask.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'gfsdjnvds2',
+    'title': 'Hylian Shield',
+    'price': 25.50,
+    'img': 'Master-Sword-Shield.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'dsnksdjnvds3',
+    'title': 'Ocarina',
+    'price': 30.50,
+    'img': 'Ocarina.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'ksdjnvds4',
+    'title': 'Sheika Eye',
+    'price': 10.50,
+    'img': 'Sheika-Eye.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'ksdjnvds5',
+    'title': 'TriForce',
+    'price': 45.50,
+    'img': 'TriForce.png',
+    'category': 'Collectible'
+  },
+  {
+    '_id' : 'vds6',
+    'title': 'Z-Sword',
+    'price': 10.50,
+    'img': 'Z-Sword.png',
+    'category': 'Collectible'
+  }
 ]
