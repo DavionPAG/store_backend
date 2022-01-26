@@ -8,10 +8,10 @@ python -m pip install "pymongo[srv]"
 python -m venv venv
 
 - activate the virtual environment
--- mac:
+    - mac:
     source venv/bin/activate
 
--- win:
+    - win:
     venv\Scripts\activate
 
 - run the project
