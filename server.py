@@ -1,3 +1,4 @@
+from crypt import methods
 import imp
 from flask import Flask, request, abort
 from data import catalog
@@ -45,8 +46,8 @@ def get_catalog():
 
     prods = []
     for prod in cursor:
-      prod['_id'] = str(prod['_id'])
-      prods.append(prod)
+        prod['_id'] = str(prod['_id'])
+        prods.append(prod)
 
     return json.dumps(prods)
 
@@ -55,11 +56,11 @@ def get_catalog():
 def save_prod():
     prod = request.get_json()
     print(prod)
-    # if not 'title' in prod or len(prod['title']) < 5:
-    #     return abort(400, '"Title" required, and must be a least 5 chars')
+    if not 'title' in prod or len(prod['title']) < 5:
+        return abort(400, '"Title" required, and must be a least 5 chars')
 
-    # if not 'price' in prod or prod['price'] < 0:
-    #     return abort(400, '"Price" required, and must be > 0')
+    if not 'price' in prod or prod['price'] < 0:
+        return abort(400, '"Price" required, and must be > 0')
 
     # prod['_id'] = random.randint(1000, 100000)
     # catalog.append(prod)
@@ -78,8 +79,8 @@ def get_cheapest():
     for prod in cursor:
         if prod['price'] < cheap['price']:
             cheap = prod
-    
-    cheap['_id'] = str(cheap['_id'])    
+
+    cheap['_id'] = str(cheap['_id'])
     return json.dumps(cheap)
 
 
@@ -87,12 +88,12 @@ def get_cheapest():
 def get_id(id):
 
     if(not ObjectId.is_valid(id)):
-      return abort(400, 'ID is not Valid')
+        return abort(400, 'ID is not Valid')
     results = db.products.find_one({'_id': ObjectId(id)})
     if not results:
-      return abort(404)
-    results['_id'] = str(results['_id'])    
-    
+        return abort(404)
+    results['_id'] = str(results['_id'])
+
     return json.dumps(results)
 
 
@@ -108,8 +109,11 @@ def get_by_cat(cat):
 @app.route('/api/catalog/categories')
 def get_cat():
     filtered_list = []
-    for prod in catalog:
+    cursor = db.products.find({})
+
+    for prod in cursor:
         if prod['category'] not in filtered_list:
+            prod['_id'] = str(prod['_id'])
             filtered_list.append(prod['category'])
     return json.dumps(filtered_list)
 
@@ -137,5 +141,58 @@ def get_high_expense():
             high_expense = prod
     return json.dumps(high_expense)
 
+
+@app.route('/api/delete/<id>', methods=['post'])
+def delete_id(id):
+
+    if(not ObjectId.is_valid(id)):
+        return abort(400, 'ID is not Valid')
+    results = db.products.find_one_and_delete({'_id': ObjectId(id)})
+    if not results:
+        return abort(404)
+    results['_id'] = str(results['_id'])
+
+    return json.dumps(results)
+
+###################################################
+
+@app.route('/api/coupons')
+def get_coupons():
+
+    cursor = db.coupons.find({})
+    print(cursor)
+
+    codeObj = []
+    for code in cursor:
+        code['_id'] = str(code['_id'])
+        codeObj.append(code)
+
+    return json.dumps(codeObj)
+
+@app.route('/api/coupon', methods=['post'])
+def save_codes():
+    codeObj = request.get_json()
+    print(codeObj)
+
+    if not 'code' in codeObj or not 'discount' in codeObj:
+        return abort(400, 'Code and Discount required')
+
+    db.coupons.insert_one(codeObj)
+
+    codeObj['_id'] = str(codeObj['_id'])
+
+    return json.dumps(codeObj)
+
+@app.route('/api/couponCode/<code>')
+def get_by_code(code):
+    print(code)
+    results = db.coupons.find_one({"code": code})
+    print(results)
+    if not results:
+        return abort(404)
+    
+    results['_id'] = str(results['_id'])
+
+    return json.dumps(results)    
 
 app.run(debug=True)
